@@ -1,24 +1,22 @@
 # VERSION 0.2
 # DOCKER-VERSION 0.3.4
-# To build:
+# To build this for yourself:
 # 1. Install docker (http://docker.io)
 # 2. Checkout source: git@github.com:rootwzrd/docker-node-hello.git
 # 3. Build container: docker build .
 
+# Or the you could just build your docker image using this rootwzrd/jessie-base as a starting point.
+
 FROM    debian:jessie
 
-# Enable EPEL for Node.js
-#RUN     rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-# Need to install Node.js and npm Which is the whole point of doing this
-#RUN     yum install -y npm
+# To build a web server uncomment below
+#RUN apt-get update && apt-get install apache2 
 
-# App
-#COPY . /src
-# Install app dependencies
-#RUN cd /src; npm install
+# If you want to install Node.js and npm 
+#RUN     apt-get install node npm
 
-#EXPOSE  80
-#CMD ["node", "/src/index.js"]
+
+EXPOSE  80
 
 # the git link for the offical docker image 
 #
